@@ -1,0 +1,2512 @@
+/* =========================
+   Modern Base
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  color: #1f2937;
+  background: #f8fafc;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* =========================
+   Base
+========================= */
+
+#root > div {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+#root > div.login-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   Login Page
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(37, 99, 235, 0.08),
+      transparent 35%
+    ),
+    #f8fafc;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1040px;
+  min-height: 620px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.08),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   Login Brand
+========================= */
+
+.login-brand {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 64px;
+  overflow: hidden;
+
+  background: linear-gradient(
+    145deg,
+    #2563eb 0%,
+    #1d4ed8 55%,
+    #1e40af 100%
+  );
+
+  color: #ffffff;
+}
+
+.login-brand::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  top: -100px;
+  right: -90px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.login-brand::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  bottom: -70px;
+  left: -60px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.login-brand-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 390px;
+}
+
+/* =========================
+   Login Logo
+========================= */
+
+.login-logo {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 28px;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.login-brand h1 {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+  font-size: 42px;
+  line-height: 1.08;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+}
+
+.login-brand p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================
+   Login Decoration
+========================= */
+
+.login-decoration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 42px;
+}
+
+.login-decoration span {
+  display: block;
+
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.login-decoration span:nth-child(1) {
+  width: 42px;
+}
+
+.login-decoration span:nth-child(2) {
+  width: 24px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.login-decoration span:nth-child(3) {
+  width: 12px;
+
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================
+   Login Form Section
+========================= */
+
+.login-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 64px 72px;
+
+  background: #ffffff;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* =========================
+   Login Heading
+========================= */
+
+.login-heading {
+  margin-bottom: 0;
+}
+
+.login-heading h2 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.login-heading p {
+  margin: 0 0 32px;
+
+  color: #6b7280;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Login Input
+========================= */
+
+.login-input-group {
+  margin-bottom: 20px;
+}
+
+.login-input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-input-group input {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 8px;
+  padding: 0 15px;
+
+  color: #111827;
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-input-group input::placeholder {
+  color: #9ca3af;
+}
+
+.login-input-group input:hover {
+  border-color: #9ca3af;
+}
+
+.login-input-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================
+   Login Button
+========================= */
+
+.login-form-wrapper form button {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow:
+    0 6px 16px rgba(37, 99, 235, 0.22);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-form-wrapper form button:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.login-form-wrapper form button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Login Responsive
+========================= */
+
+@media (max-width: 768px) {
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 28px 20px;
+}
+
+  .login-container {
+    max-width: 520px;
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 20px;
+  }
+
+  .login-brand {
+    min-height: 240px;
+
+    padding: 36px;
+  }
+
+  .login-brand-content {
+    max-width: 100%;
+  }
+
+  .login-logo {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+  }
+
+  .login-brand h1 {
+    margin-bottom: 12px;
+
+    font-size: 30px;
+  }
+
+  .login-brand p {
+    font-size: 14px;
+  }
+
+  .login-decoration {
+    margin-top: 24px;
+  }
+
+  .login-form-section {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 20px 16px;
+}
+
+  .login-container {
+    border-radius: 18px;
+  }
+
+  .login-brand {
+    min-height: 210px;
+
+    padding: 28px;
+  }
+
+  .login-logo {
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 16px;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+  }
+
+  .login-brand h1 {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+
+  .login-brand p {
+    font-size: 13px;
+  }
+
+  .login-decoration {
+    margin-top: 20px;
+  }
+
+  .login-form-section {
+    padding: 28px 24px;
+  }
+
+  .login-heading {
+    margin-bottom: 26px;
+  }
+
+  .login-heading h2 {
+    font-size: 24px;
+  }
+
+  .login-input-group {
+    margin-bottom: 18px;
+  }
+}
+
+/* =========================
+   Admin Dashboard Header
+========================= */
+
+.admin-dashboard .dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+.admin-dashboard .dashboard-header h1 {
+  margin: 0;
+
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.admin-dashboard .dashboard-header h2 {
+  margin: 5px 0 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-dashboard .dashboard-header button {
+  flex-shrink: 0;
+
+  padding: 10px 18px;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border: none;
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.admin-dashboard .dashboard-header button:hover {
+  background: #1d4ed8;
+
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.2);
+}
+
+.admin-dashboard .dashboard-header button:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   Participant Dashboard Header
+========================= */
+
+.participant-dashboard .dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.participant-dashboard .dashboard-header h1 {
+  margin: 0 0 6px;
+
+  color: #111827;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.participant-dashboard .dashboard-header h2 {
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* =========================
+   Participant Information
+========================= */
+
+.participant-dashboard .user-info {
+  padding: 20px 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.participant-dashboard .user-info p {
+  margin: 5px 0;
+
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.participant-dashboard .user-info p:first-child {
+  margin-bottom: 10px;
+
+  color: #374151;
+  font-size: 16px;
+}
+
+.participant-dashboard .user-info strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* =========================
+   Dashboard Base
+========================= */
+
+.admin-dashboard,
+.participant-dashboard {
+  color: #1f2937;
+}
+
+.admin-dashboard h1,
+.participant-dashboard h1 {
+  margin: 0 0 6px;
+
+  color: #111827;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.admin-dashboard h2,
+.participant-dashboard h2 {
+  margin: 0 0 24px;
+
+  color: #4b5563;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.admin-dashboard h3,
+.participant-dashboard h3 {
+  margin: 32px 0 16px;
+
+  color: #111827;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.admin-dashboard p,
+.participant-dashboard p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.admin-dashboard hr,
+.participant-dashboard hr {
+  margin: 32px 0;
+
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* =========================
+   Inputs
+========================= */
+
+.admin-dashboard input {
+  min-height: 42px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  padding: 9px 12px;
+
+  color: #111827;
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.admin-dashboard input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.admin-dashboard button,
+.participant-dashboard button {
+  min-height: 40px;
+
+  padding: 9px 16px;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border: 0;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s, transform 0.1s;
+}
+
+.admin-dashboard button:hover,
+.participant-dashboard button:hover {
+  background: #1d4ed8;
+}
+
+.admin-dashboard button:active,
+.participant-dashboard button:active {
+  transform: translateY(1px);
+}
+
+.admin-dashboard button:disabled,
+.participant-dashboard button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* =========================
+   Tables
+========================= */
+
+.admin-dashboard table,
+.participant-dashboard table {
+  width: 100%;
+  margin-top: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* Table Header */
+
+.admin-dashboard th,
+.participant-dashboard th {
+  padding: 15px 16px;
+
+  color: #6b7280;
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Table Body */
+
+.admin-dashboard td,
+.participant-dashboard td {
+  padding: 15px 16px;
+
+  color: #374151;
+  background: #ffffff;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  font-size: 14px;
+
+  vertical-align: middle;
+}
+
+/* Remove last row border */
+
+.admin-dashboard tbody tr:last-child td,
+.participant-dashboard tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Row Hover */
+
+.admin-dashboard tbody tr,
+.participant-dashboard tbody tr {
+  transition: background 0.15s ease;
+}
+
+.admin-dashboard tbody tr:hover td,
+.participant-dashboard tbody tr:hover td {
+  background: #f8fafc;
+}
+
+/* =========================
+   Table Action Buttons
+========================= */
+
+.admin-dashboard td button {
+  min-height: 34px;
+  padding: 7px 12px;
+
+  font-size: 13px;
+}
+
+.admin-dashboard td button + button {
+  margin-left: 8px;
+  background: #ef4444;
+}
+
+.admin-dashboard td button + button:hover {
+  background: #dc2626;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+  #root > div {
+    padding: 28px 20px;
+  }
+
+  .admin-dashboard,
+  .participant-dashboard {
+    width: 100%;
+  }
+
+  /* Dashboard Header */
+
+  .admin-dashboard .dashboard-header,
+  .participant-dashboard .dashboard-header {
+    gap: 16px;
+  }
+
+  .admin-dashboard .dashboard-header h1,
+  .participant-dashboard .dashboard-header h1 {
+    font-size: 26px;
+  }
+
+  .participant-dashboard .dashboard-header h2 {
+    font-size: 15px;
+  }
+
+/* Tables */
+
+.admin-dashboard table,
+.participant-dashboard table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Participant Attendance History */
+
+.participant-dashboard table {
+  display: table;
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  overflow: visible;
+  white-space: normal;
+}
+
+.participant-dashboard table th,
+.participant-dashboard table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+  /* User Cards */
+
+  .admin-user-card,
+  .participant-user-card {
+    padding: 18px 20px;
+  }
+
+  /* Statistics */
+
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Participant Form */
+
+  .admin-dashboard .participant-form {
+    flex-wrap: wrap;
+  }
+
+  .admin-dashboard .participant-form input {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #root > div {
+    padding: 20px 16px;
+  }
+
+  .admin-dashboard,
+  .participant-dashboard {
+    padding: 0;
+  }
+
+  /* Dashboard Header */
+
+  .admin-dashboard .dashboard-header,
+  .participant-dashboard .dashboard-header {
+    align-items: flex-start;
+  }
+
+  .admin-dashboard .dashboard-header h1,
+  .participant-dashboard .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .admin-dashboard .dashboard-header h2,
+  .participant-dashboard .dashboard-header h2 {
+    font-size: 14px;
+  }
+
+  .admin-dashboard .dashboard-header button,
+  .participant-dashboard .dashboard-header button {
+    min-height: 38px;
+    padding: 8px 13px;
+    font-size: 13px;
+  }
+
+  /* User Cards */
+
+  .admin-user-card,
+  .participant-user-card {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .admin-user-avatar,
+  .participant-user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+  }
+
+  .admin-user-meta,
+  .participant-user-meta {
+    flex-wrap: wrap;
+  }
+
+  /* Statistics */
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px 20px;
+  }
+
+  .stat-card-value {
+    font-size: 27px;
+  }
+
+  /* Participant Form */
+
+  .admin-dashboard .participant-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .admin-dashboard .participant-form input,
+  .admin-dashboard .participant-form button {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Report Filter */
+
+  .admin-dashboard .report-filter {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .admin-dashboard .report-filter label {
+    margin-top: 4px;
+  }
+
+  .admin-dashboard .report-filter input,
+  .admin-dashboard .report-filter button {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Attendance Card */
+
+  .participant-dashboard .attendance-card {
+    padding: 20px;
+  }
+
+  .attendance-card-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .attendance-status {
+    align-self: flex-start;
+  }
+
+  .attendance-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .attendance-actions button {
+    width: 100%;
+  }
+
+/* Tables */
+
+.admin-dashboard table,
+.participant-dashboard table {
+  margin-top: 16px;
+}
+
+.participant-dashboard table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  table-layout: auto;
+  white-space: nowrap;
+}
+
+  /* Headings */
+
+  .admin-dashboard h3,
+  .participant-dashboard h3 {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   Attendance Card
+========================= */
+
+.participant-dashboard .attendance-card {
+  margin-top: 28px;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.participant-dashboard .attendance-card h3 {
+  margin: 0 0 6px;
+
+  color: #111827;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.participant-dashboard .attendance-card p {
+  margin: 0 0 20px;
+
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.participant-dashboard .attendance-card button {
+  margin-right: 10px;
+}
+
+.participant-dashboard .attendance-card button:last-child {
+  margin-right: 0;
+}
+
+/* =========================
+   Attendance Status Badge
+========================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-on-time {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.status-late {
+  color: #9a3412;
+  background: #ffedd5;
+}
+
+/* =========================
+   Participant Form
+========================= */
+
+.admin-dashboard .participant-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.admin-dashboard .participant-form input {
+  flex: 1;
+  margin: 0;
+}
+
+.admin-dashboard .participant-form button {
+  flex-shrink: 0;
+}
+
+.admin-dashboard .participant-form button {
+  background: #2563eb;
+}
+
+.admin-dashboard .participant-form button:hover {
+  background: #1d4ed8;
+}
+
+.admin-dashboard .participant-form button + button {
+  background: #6b7280;
+}
+
+.admin-dashboard .participant-form button + button:hover {
+  background: #4b5563;
+}
+
+/* =========================
+   Participant Management Table
+========================= */
+
+.admin-dashboard .participant-form + br {
+  display: none;
+}
+
+.admin-dashboard .participant-form + br + table {
+  margin-top: 20px;
+}
+
+/* Action column */
+
+.admin-dashboard table td:last-child {
+  white-space: nowrap;
+}
+
+/* Edit button */
+
+.admin-dashboard table td:last-child button:first-child {
+  min-height: 34px;
+  padding: 7px 12px;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-dashboard table td:last-child button:first-child:hover {
+  background: #1d4ed8;
+}
+
+/* Delete button */
+
+.admin-dashboard table td:last-child button:last-child {
+  min-height: 34px;
+  margin-left: 8px;
+  padding: 7px 12px;
+
+  color: #ffffff;
+  background: #ef4444;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-dashboard table td:last-child button:last-child:hover {
+  background: #dc2626;
+}
+
+/* =========================
+   Attendance Report Filter
+========================= */
+
+.admin-dashboard .report-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-bottom: 20px;
+  padding: 18px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.admin-dashboard .report-filter label {
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-dashboard .report-filter input {
+  min-width: 150px;
+  min-height: 42px;
+
+  margin: 0;
+  padding: 9px 12px;
+
+  color: #111827;
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-dashboard .report-filter input:hover {
+  border-color: #9ca3af;
+}
+
+.admin-dashboard .report-filter input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-dashboard .report-filter button {
+  min-height: 42px;
+
+  margin: 0;
+  padding: 9px 18px;
+
+  border-radius: 8px;
+}
+
+/* Filter button */
+
+.admin-dashboard .report-filter button:first-of-type {
+  background: #2563eb;
+}
+
+.admin-dashboard .report-filter button:first-of-type:hover {
+  background: #1d4ed8;
+}
+
+/* Export CSV button */
+
+.admin-dashboard .report-filter button:last-of-type {
+  background: #059669;
+}
+
+.admin-dashboard .report-filter button:last-of-type:hover {
+  background: #047857;
+}
+
+/* =========================
+   Attendance Report Table
+========================= */
+
+
+.admin-dashboard .report-filter + table {
+  margin-top: 0;
+
+  border-radius: 14px;
+}
+
+/* Table cells */
+
+.admin-dashboard .report-filter + table th,
+.admin-dashboard .report-filter + table td {
+  vertical-align: middle;
+}
+
+/* Number column */
+
+.admin-dashboard .report-filter + table th:first-child,
+.admin-dashboard .report-filter + table td:first-child {
+  width: 60px;
+  text-align: center;
+}
+
+/* Date column */
+
+.admin-dashboard .report-filter + table th:nth-child(4),
+.admin-dashboard .report-filter + table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+/* Check-in & Check-out */
+
+.admin-dashboard .report-filter + table th:nth-child(5),
+.admin-dashboard .report-filter + table td:nth-child(5),
+.admin-dashboard .report-filter + table th:nth-child(6),
+.admin-dashboard .report-filter + table td:nth-child(6) {
+  white-space: nowrap;
+}
+
+/* Status column */
+
+.admin-dashboard .report-filter + table th:last-child,
+.admin-dashboard .report-filter + table td:last-child {
+  white-space: nowrap;
+}
+
+/* Empty state */
+
+.admin-dashboard .report-filter + p {
+  margin-top: 0;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  color: #6b7280;
+
+  text-align: center;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   Today's Attendance
+========================= */
+
+.participant-dashboard .attendance-card {
+  padding: 24px;
+}
+
+.attendance-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.attendance-card-header h3 {
+  margin: 0 0 6px;
+}
+
+.attendance-card-header p {
+  margin: 0;
+}
+
+.attendance-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.attendance-status-pending {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.attendance-status-active {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.attendance-status-completed {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.attendance-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.attendance-actions button {
+  min-width: 110px;
+}
+
+.attendance-actions .checkout-button {
+  background: #059669;
+}
+
+.attendance-actions .checkout-button:hover {
+  background: #047857;
+}
+
+.attendance-actions button:disabled {
+  background: #d1d5db;
+  color: #6b7280;
+  box-shadow: none;
+}
+
+/* =========================
+   Admin User Card
+========================= */
+
+.admin-user-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 28px;
+  padding: 20px 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.admin-user-avatar {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.admin-user-details {
+  min-width: 0;
+}
+
+.admin-welcome {
+  margin: 0 0 5px;
+
+  color: #374151;
+  font-size: 15px;
+}
+
+.admin-welcome strong {
+  color: #111827;
+}
+
+.admin-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.meta-divider {
+  color: #d1d5db;
+}
+
+/* =========================
+   Admin Statistics
+========================= */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  padding: 22px 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #dbe3ef;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.stat-card-label {
+  margin-bottom: 10px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-card-value {
+  margin-bottom: 5px;
+
+  color: #111827;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.stat-card-description {
+  color: #9ca3af;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Participant User Card
+========================= */
+
+.participant-user-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 28px;
+  padding: 22px 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.participant-user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.participant-user-details {
+  min-width: 0;
+}
+
+.participant-welcome {
+  margin: 0 0 5px !important;
+
+  color: #111827 !important;
+
+  font-size: 16px !important;
+  font-weight: 500;
+}
+
+.participant-welcome strong {
+  font-weight: 700;
+}
+
+.participant-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+/* =========================
+   Participant Attendance History
+========================= */
+
+.participant-dashboard table {
+  margin-top: 20px;
+}
+
+/* Number / date-like columns */
+
+.participant-dashboard table th,
+.participant-dashboard table td {
+  vertical-align: middle;
+}
+
+.participant-dashboard table th:first-child,
+.participant-dashboard table td:first-child {
+  white-space: nowrap;
+}
+
+/* Check-in & Check-out */
+
+.participant-dashboard table th:nth-child(2),
+.participant-dashboard table td:nth-child(2),
+.participant-dashboard table th:nth-child(3),
+.participant-dashboard table td:nth-child(3) {
+  white-space: nowrap;
+}
+
+/* Status */
+
+.participant-dashboard table th:last-child,
+.participant-dashboard table td:last-child {
+  white-space: nowrap;
+}
+
+/* =========================
+   Participant Dashboard
+========================= */
+
+/* Dashboard spacing */
+
+.participant-dashboard {
+  padding-bottom: 40px;
+}
+
+/* Today's Attendance Card */
+
+.participant-dashboard .attendance-card {
+  margin-top: 0;
+  padding: 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.04);
+
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.participant-dashboard .attendance-card:hover {
+  border-color: #dbe3ef;
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Attendance Header */
+
+.participant-dashboard .attendance-card-header {
+  align-items: center;
+}
+
+.participant-dashboard .attendance-card-header h3 {
+  margin: 0 0 6px;
+
+  color: #111827;
+
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.participant-dashboard .attendance-card-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+/* Attendance Status */
+
+.participant-dashboard .attendance-status {
+  min-height: 32px;
+
+  padding: 7px 13px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border: 1px solid transparent;
+}
+
+.participant-dashboard .attendance-status-pending {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+
+.participant-dashboard .attendance-status-active {
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-color: #bfdbfe;
+}
+
+.participant-dashboard .attendance-status-completed {
+  color: #166534;
+  background: #dcfce7;
+  border-color: #bbf7d0;
+}
+
+/* Attendance Actions */
+
+.participant-dashboard .attendance-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+
+  border-top: 1px solid #f1f5f9;
+}
+
+.participant-dashboard .attendance-actions button {
+  min-width: 120px;
+  min-height: 42px;
+
+  padding: 10px 18px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Check-in */
+
+.participant-dashboard .attendance-actions button:first-child {
+  background: #2563eb;
+}
+
+.participant-dashboard .attendance-actions button:first-child:hover {
+  background: #1d4ed8;
+
+  box-shadow:
+    0 6px 14px rgba(37, 99, 235, 0.18);
+}
+
+/* Check-out */
+
+.participant-dashboard .attendance-actions .checkout-button {
+  background: #059669;
+}
+
+.participant-dashboard .attendance-actions .checkout-button:hover {
+  background: #047857;
+
+  box-shadow:
+    0 6px 14px rgba(5, 150, 105, 0.18);
+}
+
+/* Disabled buttons */
+
+.participant-dashboard .attendance-actions button:disabled {
+  background: #e5e7eb;
+
+  color: #9ca3af;
+
+  box-shadow: none;
+
+  opacity: 1;
+}
+
+/* Attendance History Heading */
+
+.participant-dashboard > h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Attendance History Empty State */
+
+.participant-dashboard > p {
+  margin-top: 20px;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  color: #6b7280;
+
+  text-align: center;
+
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   Attendance History
+========================= */
+
+/* Section divider */
+
+.participant-dashboard > hr {
+  margin: 32px 0 28px;
+  border-top-color: #e5e7eb;
+}
+
+/* History section title */
+
+.participant-dashboard > h3 {
+  margin: 0 0 16px;
+
+  color: #111827;
+
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* History table */
+
+.participant-dashboard table {
+  margin-top: 0;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* History table header */
+
+.participant-dashboard table th {
+  height: 48px;
+  padding: 13px 16px;
+
+  color: #6b7280;
+  background: #f8fafc;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+}
+
+/* History table body */
+
+.participant-dashboard table td {
+  height: 54px;
+  padding: 13px 16px;
+
+  color: #374151;
+
+  font-size: 14px;
+}
+
+/* Date */
+
+.participant-dashboard table td:first-child {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Empty history */
+
+.participant-dashboard > p {
+  margin: 0;
+  padding: 28px 20px;
+
+  color: #6b7280;
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  text-align: center;
+
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   Final Cleanup
+========================= */
+
+/* Smooth transitions */
+
+.admin-dashboard button,
+.participant-dashboard button,
+.admin-dashboard input,
+.participant-dashboard table tr,
+.stat-card,
+.admin-user-card,
+.participant-user-card,
+.attendance-card {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* Better focus accessibility */
+
+.admin-dashboard button:focus-visible,
+.participant-dashboard button:focus-visible,
+.login-form-wrapper button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.2);
+  outline-offset: 2px;
+}
+
+.admin-dashboard input:focus-visible,
+.login-input-group input:focus-visible {
+  outline: none;
+}
+
+/* Consistent clickable button behavior */
+
+.admin-dashboard button:not(:disabled):hover,
+.participant-dashboard button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+/* Keep disabled buttons stable */
+
+.admin-dashboard button:disabled:hover,
+.participant-dashboard button:disabled:hover {
+  transform: none;
+}
+
+/* Consistent table readability */
+
+.admin-dashboard table,
+.participant-dashboard table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Improve long email handling */
+
+.admin-dashboard table td:nth-child(3),
+.participant-dashboard table td:nth-child(1) {
+  overflow-wrap: anywhere;
+}
+
+/* Remove accidental bottom spacing */
+
+.admin-dashboard > h3:first-of-type,
+.participant-dashboard > h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Clean dashboard bottom spacing */
+
+.admin-dashboard,
+.participant-dashboard {
+  padding-bottom: 48px;
+}
+
+/* =========================
+   Notification Toast
+========================= */
+
+.notification {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+
+  z-index: 9999;
+
+  width: min(380px, calc(100vw - 32px));
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.12),
+    0 4px 10px rgba(15, 23, 42, 0.05);
+
+  animation:
+    notification-slide-in 0.3s ease forwards;
+
+}
+
+/* Notification Icon */
+
+.notification-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Notification Content */
+
+.notification-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  padding-top: 1px;
+}
+
+.notification-content strong {
+  color: #111827;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.notification-content span {
+  color: #6b7280;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+/* Close Button */
+
+.notification-close {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-left: auto;
+  padding: 0;
+
+  color: #9ca3af;
+  background: transparent !important;
+
+  border: none;
+  border-radius: 6px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.notification-close:hover {
+  color: #374151;
+  background: #f3f4f6 !important;
+}
+
+/* Success */
+
+.notification-success {
+  border-left: 4px solid #16a34a;
+}
+
+.notification-success .notification-icon {
+  color: #166534;
+  background: #dcfce7;
+}
+
+/* Error */
+
+.notification-error {
+  border-left: 4px solid #dc2626;
+}
+
+.notification-error .notification-icon {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+/* Warning */
+
+.notification-warning {
+  border-left: 4px solid #d97706;
+}
+
+.notification-warning .notification-icon {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+/* Information */
+
+.notification-info {
+  border-left: 4px solid #2563eb;
+}
+
+.notification-info .notification-icon {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+/* Animation */
+
+@keyframes notification-slide-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .notification {
+    top: 16px;
+    left: 50%;
+
+    width: calc(100vw - 32px);
+
+    padding: 14px;
+
+    transform: translateX(-50%);
+  }
+
+  .notification-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* =========================
+   Confirmation Modal
+========================= */
+
+.confirmation-overlay {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  animation: confirmation-fade-in 0.2s ease;
+}
+
+#root > .confirmation-overlay {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.confirmation-modal {
+  width: min(400px, 100%);
+
+  padding: 28px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.18);
+
+  text-align: center;
+
+  animation: confirmation-scale-in 0.2s ease;
+}
+
+.confirmation-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 16px;
+
+  color: #991b1b;
+  background: #fee2e2;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.confirmation-content h3 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.confirmation-content p {
+  margin: 0 0 5px;
+
+  color: #374151;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.confirmation-content span {
+  display: block;
+
+  color: #9ca3af;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.confirmation-actions button {
+  min-width: 100px;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.confirmation-cancel {
+  color: #374151 !important;
+  background: #f3f4f6 !important;
+
+  border: 1px solid #e5e7eb !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.confirmation-cancel:hover {
+  background: #e5e7eb !important;
+}
+
+.confirmation-delete {
+  color: #ffffff !important;
+  background: #dc2626 !important;
+
+  border: 1px solid #dc2626 !important;
+
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.confirmation-delete:hover {
+  background: #b91c1c !important;
+}
+
+@keyframes confirmation-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirmation-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .confirmation-modal {
+    padding: 24px 20px;
+  }
+
+  .confirmation-actions {
+    flex-direction: column-reverse;
+  }
+
+  .confirmation-actions button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   Participant Search
+========================= */
+
+.admin-dashboard .participant-search {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.admin-dashboard .participant-search .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+
+  width: 22px;
+  height: 22px;
+
+  transform: translateY(-50%);
+
+  fill: none;
+  stroke: #9ca3af;
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  pointer-events: none;
+}
+
+.admin-dashboard .participant-search input {
+  width: 100%;
+  min-height: 44px;
+
+  margin: 0;
+  padding: 10px 14px 10px 42px;
+
+  color: #111827;
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-dashboard .participant-search input::placeholder {
+  color: #9ca3af;
+}
+
+.admin-dashboard .participant-search input:hover {
+  border-color: #9ca3af;
+}
+
+.admin-dashboard .participant-search input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-dashboard .participant-search:focus-within .search-icon {
+  color: #2563eb;
+}
