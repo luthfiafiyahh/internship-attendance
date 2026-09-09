@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const API_URL = 'https://internship-attendance-production.up.railway.app';
+
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -52,7 +54,7 @@ const todayAttendanceCount = attendanceReport.filter((attendance) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/login', {
+      const response = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,9 +102,7 @@ const handleLogout = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(
-        'http://localhost:3000/api/attendance/history',
-        {
+      const response = await fetch(`${API_URL}/api/attendance/history`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -204,9 +204,7 @@ const addParticipant = async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const response = await fetch(
-      'http://localhost:3000/api/users/participants',
-      {
+    const response = await fetch(`${API_URL}/api/users/participants`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -248,7 +246,7 @@ const editParticipant = async () => {
     const token = localStorage.getItem('token');
 
     const response = await fetch(
-      `http://localhost:3000/api/users/participants/${editingParticipantId}`,
+      `${API_URL}/api/users/participants/${editingParticipantId}`,
       {
         method: 'PUT',
         headers: {
@@ -297,7 +295,7 @@ const confirmDeleteParticipant = async () => {
     const token = localStorage.getItem('token');
 
     const response = await fetch(
-      `http://localhost:3000/api/users/participants/${participantId}`,
+      `${API_URL}/api/users/participants/${participantId}`,
       {
         method: 'DELETE',
         headers: {
@@ -326,9 +324,7 @@ const confirmDeleteParticipant = async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const response = await fetch(
-      'http://localhost:3000/api/users/all',
-      {
+    const response = await fetch(`${API_URL}/api/users/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -360,7 +356,7 @@ const fetchAttendanceReport = async () => {
     const token = localStorage.getItem('token');
 
 const response = await fetch(
-  `http://localhost:3000/api/attendance/report?start_date=${startDate}&end_date=${endDate}`,
+  `${API_URL}/api/attendance/report?start_date=${startDate}&end_date=${endDate}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -691,7 +687,7 @@ if (user && user.role === 'admin') {
             const token = localStorage.getItem('token');
 
             const response = await fetch(
-              `http://localhost:3000/api/attendance/export-csv?start_date=${startDate}&end_date=${endDate}`,
+              `${API_URL}/api/attendance/export-csv?start_date=${startDate}&end_date=${endDate}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -859,9 +855,7 @@ if (user && user.role === 'admin') {
                     try {
                       const token = localStorage.getItem('token');
 
-                      const response = await fetch(
-                        'http://localhost:3000/api/attendance/check-in',
-                        {
+                      const response = await fetch(`${API_URL}/api/attendance/check-in`, {
                           method: 'POST',
                           headers: {
                             Authorization: `Bearer ${token}`,
@@ -894,9 +888,7 @@ if (user && user.role === 'admin') {
                     try {
                       const token = localStorage.getItem('token');
 
-                      const response = await fetch(
-                        'http://localhost:3000/api/attendance/check-out',
-                        {
+                      const response = await fetch(`${API_URL}/api/attendance/check-out`, {
                           method: 'PUT',
                           headers: {
                             Authorization: `Bearer ${token}`,
