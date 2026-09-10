@@ -2690,3 +2690,32 @@ button:disabled {
   }
 }
 }
+
+/* =========================
+   Final Mobile Report Filter
+========================= */
+
+@media (max-width: 480px) {
+  .admin-dashboard .report-filter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .admin-dashboard .report-filter label {
+    width: 100%;
+    margin: 0;
+  }
+
+  .admin-dashboard .report-filter input,
+  .admin-dashboard .report-filter select,
+  .admin-dashboard .report-filter button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+  }
+}
