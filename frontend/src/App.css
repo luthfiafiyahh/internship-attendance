@@ -2720,11 +2720,11 @@ button:disabled {
   }
 
   .admin-dashboard .report-filter input[type="date"] {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  box-sizing: border-box;
-  flex: 0 1 auto;
-}
+    display: block;
+    width: 180px;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex: 0 1 auto;
+  }
 }
