@@ -20,5 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
+  console.log('Timezone Node.js:', Intl.DateTimeFormat().resolvedOptions().timeZone);
   console.log(`Server berjalan di port ${PORT}`);
 });
