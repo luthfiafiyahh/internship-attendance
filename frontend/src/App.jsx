@@ -21,9 +21,12 @@ function App() {
   const [attendanceHistory, setAttendanceHistory] = useState([]);
   const [participants, setParticipants] = useState([]);
   const [searchParticipant, setSearchParticipant] = useState('');
+  const [currentParticipantPage, setCurrentParticipantPage] = useState(1);
+  const participantsPerPage = 5;
   const [attendanceReport, setAttendanceReport] = useState([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [attendanceStatusFilter, setAttendanceStatusFilter] = useState('all');
   const showNotification = (message, type = 'success') => {
   setNotification({
     message,
@@ -35,12 +38,11 @@ function App() {
   }, 3000);
 };
 
-  const totalParticipants = participants.length;
-const totalAttendanceRecords = attendanceReport.length;
+const totalParticipants = participants.length;
 
 const currentDate = new Date();
 
-const todayAttendanceCount = attendanceReport.filter((attendance) => {
+const todayAttendance = attendanceReport.filter((attendance) => {
   const attendanceDate = new Date(attendance.date);
 
   return (
@@ -48,7 +50,18 @@ const todayAttendanceCount = attendanceReport.filter((attendance) => {
     attendanceDate.getMonth() === currentDate.getMonth() &&
     attendanceDate.getDate() === currentDate.getDate()
   );
-}).length;
+});
+
+const presentTodayCount = todayAttendance.filter(
+  (attendance) => attendance.status === 'present'
+).length;
+
+const lateTodayCount = todayAttendance.filter(
+  (attendance) => attendance.status === 'late'
+).length;
+
+const notCheckedInCount =
+  totalParticipants - todayAttendance.length;
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -345,18 +358,37 @@ const confirmDeleteParticipant = async () => {
   }
 };
 
-const filteredParticipants = participants.filter((participant) =>
-  participant.name
-    .toLowerCase()
-    .includes(searchParticipant.toLowerCase())
+const filteredParticipants = participants
+  .filter((participant) =>
+    participant.name
+      .toLowerCase()
+      .includes(searchParticipant.toLowerCase())
+  )
+  .sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
+const totalParticipantPages = Math.ceil(
+  filteredParticipants.length / participantsPerPage
 );
 
-const fetchAttendanceReport = async () => {
+const startParticipantIndex =
+  (currentParticipantPage - 1) * participantsPerPage;
+
+const currentParticipants = filteredParticipants.slice(
+  startParticipantIndex,
+  startParticipantIndex + participantsPerPage
+);
+
+const fetchAttendanceReport = async (
+  filterStartDate = startDate,
+  filterEndDate = endDate
+) => {
   try {
     const token = localStorage.getItem('token');
 
 const response = await fetch(
-  `${API_URL}/api/attendance/report?start_date=${startDate}&end_date=${endDate}`,
+  `${API_URL}/api/attendance/report?start_date=${filterStartDate}&end_date=${filterEndDate}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -390,6 +422,20 @@ useEffect(() => {
     fetchAttendanceReport();
   }
 }, [user]);
+
+useEffect(() => {
+  if (user && user.role === 'admin' && startDate && endDate) {
+    if (startDate > endDate) {
+      showNotification(
+        'The From date cannot be later than the To date',
+        'error'
+      );
+      return;
+    }
+
+    fetchAttendanceReport();
+  }
+}, [startDate, endDate]);
 
 const Notification = () => {
   if (!notification) {
@@ -437,6 +483,17 @@ const Notification = () => {
   // DASHBOARD ADMIN
   // =========================
 if (user && user.role === 'admin') {
+
+    const filteredAttendanceReport = attendanceReport.filter(
+    (attendance) => {
+      if (attendanceStatusFilter === 'all') {
+        return true;
+      }
+
+      return attendance.status === attendanceStatusFilter;
+    }
+  );
+
   return (
 <>
   <Notification />
@@ -508,7 +565,7 @@ if (user && user.role === 'admin') {
     </div>
   </div>
 
-  <div className="admin-stats">
+<div className="admin-stats">
   <div className="stat-card">
     <div className="stat-card-label">
       Total Participants
@@ -525,29 +582,43 @@ if (user && user.role === 'admin') {
 
   <div className="stat-card">
     <div className="stat-card-label">
-      Attendance Records
+      On Time Today
     </div>
 
     <div className="stat-card-value">
-      {totalAttendanceRecords}
+      {presentTodayCount}
     </div>
 
     <div className="stat-card-description">
-      Attendance records
+      Participants checked in on time
     </div>
   </div>
 
   <div className="stat-card">
     <div className="stat-card-label">
-      Today's Attendance
+      Late Today
     </div>
 
     <div className="stat-card-value">
-      {todayAttendanceCount}
+      {lateTodayCount}
     </div>
 
     <div className="stat-card-description">
-      Attendance recorded today
+      Participants checked in late
+    </div>
+  </div>
+
+  <div className="stat-card">
+    <div className="stat-card-label">
+      Not Checked In
+    </div>
+
+    <div className="stat-card-value">
+      {notCheckedInCount}
+    </div>
+
+    <div className="stat-card-description">
+      Participants not checked in today
     </div>
   </div>
 </div>
@@ -632,9 +703,9 @@ if (user && user.role === 'admin') {
             </thead>
 
             <tbody>
-            {filteredParticipants.map((participant, index) => (
+            {currentParticipants.map((participant, index) => (
               <tr key={participant.id}>
-                <td>{index + 1}</td>
+                <td>{startParticipantIndex + index + 1}</td>
                 <td>{participant.name}</td>
                 <td>{participant.email}</td>
                 <td>Participant</td>
@@ -662,12 +733,37 @@ if (user && user.role === 'admin') {
           </table>
         )}
 
+        <div className="pagination">
+          <button
+            onClick={() =>
+              setCurrentParticipantPage((page) => page - 1)
+            }
+            disabled={currentParticipantPage === 1}
+          >
+            Previous
+          </button>
+
+          <span>
+            Page {currentParticipantPage} of {totalParticipantPages}
+          </span>
+
+          <button
+            onClick={() =>
+              setCurrentParticipantPage((page) => page + 1)
+            }
+            disabled={currentParticipantPage === totalParticipantPages}
+          >
+            Next
+          </button>
+        </div>
+
         <h3>Attendance Report</h3>
         <div className="report-filter">
         <label>From: </label>
         <input
           type="date"
           value={startDate}
+          max={endDate || undefined}
           onChange={(event) => setStartDate(event.target.value)}
         />
 
@@ -675,11 +771,31 @@ if (user && user.role === 'admin') {
         <input
           type="date"
           value={endDate}
+          min={startDate || undefined}
           onChange={(event) => setEndDate(event.target.value)}
         />
 
-        <button onClick={fetchAttendanceReport}>
-          Filter
+        <label> Status: </label>
+
+        <select
+          value={attendanceStatusFilter}
+          onChange={(event) => setAttendanceStatusFilter(event.target.value)}
+        >
+        <option value="all">All</option>
+        <option value="present">On Time</option>
+        <option value="late">Late</option>
+        </select>
+
+        <button
+          className="clear-filter-button"
+        onClick={() => {
+          setStartDate('');
+          setEndDate('');
+          setAttendanceStatusFilter('all');
+          fetchAttendanceReport('', '');
+        }}
+        >
+          Clear
         </button>
 
         <button onClick={async () => {
@@ -687,7 +803,7 @@ if (user && user.role === 'admin') {
             const token = localStorage.getItem('token');
 
             const response = await fetch(
-              `${API_URL}/api/attendance/export-csv?start_date=${startDate}&end_date=${endDate}`,
+              `${API_URL}/api/attendance/export-csv?start_date=${startDate}&end_date=${endDate}&status=${attendanceStatusFilter}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -719,7 +835,9 @@ if (user && user.role === 'admin') {
         </button>
         </div>
 
-        {attendanceReport.length === 0 ? (
+        
+
+        {filteredAttendanceReport.length === 0 ? (
           <p>No attendance records found.</p>
         ) : (
           <table>
@@ -736,7 +854,7 @@ if (user && user.role === 'admin') {
             </thead>
 
             <tbody>
-              {attendanceReport.map((attendance, index) => (
+              {filteredAttendanceReport.map((attendance, index) => (
                 <tr key={attendance.id}>
                   <td>{index + 1}</td>
                   <td>{attendance.name}</td>
