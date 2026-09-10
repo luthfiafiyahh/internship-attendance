@@ -24,8 +24,14 @@ const checkIn = (req, res) => {
 
     const checkInTime = new Date();
 
-    const hours = checkInTime.getHours();
-    const minutes = checkInTime.getMinutes();
+    const jakartaTime = new Date(
+  checkInTime.toLocaleString('en-US', {
+    timeZone: 'Asia/Jakarta'
+  })
+);
+
+const hours = jakartaTime.getHours();
+const minutes = jakartaTime.getMinutes();
 
     const status =
       hours > 8 || (hours === 8 && minutes > 0)

@@ -16,6 +16,7 @@ db.connect((err) => {
   }
 
   console.log('Database MySQL berhasil terhubung');
+  db.query("SET time_zone = '+07:00'");
 });
 
 module.exports = db;
