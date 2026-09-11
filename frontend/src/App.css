@@ -2728,3 +2728,71 @@ button:disabled {
     flex: 0 1 auto;
   }
 }
+
+.password-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 42px !important;
+}
+
+.password-toggle {
+  position: absolute !important;
+  top: 50% !important;
+  right: 10px !important;
+
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  color: #9ca3af !important;
+  transform: translateY(-50%) !important;
+}
+
+.password-toggle {
+  position: absolute !important;
+  top: 50% !important;
+  right: 10px !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #9ca3af !important;
+  transform: translateY(-50%) !important;
+}
+
+.password-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transform: translateY(2px);
+}

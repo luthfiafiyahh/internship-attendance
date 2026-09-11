@@ -5,6 +5,8 @@ const API_URL = 'https://internship-attendance-production.up.railway.app';
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showParticipantPassword, setShowParticipantPassword] = useState(false);
   const [notification, setNotification] = useState(null);
   const [deleteConfirmation, setDeleteConfirmation] = useState(null);
 
@@ -642,12 +644,48 @@ if (user && user.role === 'admin') {
           onChange={(event) => setParticipantEmail(event.target.value)}
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={participantPassword}
-          onChange={(event) => setParticipantPassword(event.target.value)}
-        />
+        <div className="password-input-wrapper">
+          <input
+            type={showParticipantPassword ? 'text' : 'password'}
+            placeholder="Password"
+            value={participantPassword}
+            onChange={(event) => setParticipantPassword(event.target.value)}
+          />
+
+          <button
+            type="button"
+            className="password-toggle"
+            onClick={() =>
+              setShowParticipantPassword(!showParticipantPassword)
+            }
+            aria-label={
+              showParticipantPassword ? 'Hide password' : 'Show password'
+            }
+          >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect
+              x="5.5"
+              y="10"
+              width="13"
+              height="10"
+              rx="1.8"
+              fill="none"
+            />
+
+            <path
+              d="M8 10V7a4 4 0 0 1 8 0v3"
+              fill="none"
+            />
+
+            {showParticipantPassword && (
+              <path
+                d="M4 4L20 20"
+                fill="none"
+              />
+            )}
+          </svg>
+          </button>
+        </div>
 
           <button onClick={editingParticipantId ? editParticipant : addParticipant}>
             {editingParticipantId ? 'Update Participant' : 'Add Participant'}
@@ -1146,14 +1184,48 @@ return (
             <div className="login-input-group">
               <label>Password</label>
 
-            <input
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              placeholder="Enter your password"
-            />
+            <div className="password-input-wrapper">
+              <input
+                type={showLoginPassword ? 'text' : 'password'}
+                name="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                placeholder="Enter your password"
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowLoginPassword(!showLoginPassword)}
+                aria-label={
+                  showLoginPassword ? 'Hide password' : 'Show password'
+                }
+              >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  x="5.5"
+                  y="10"
+                  width="13"
+                  height="10"
+                  rx="1.8"
+                  fill="none"
+                />
+
+                <path
+                  d="M8 10V7a4 4 0 0 1 8 0v3"
+                  fill="none"
+                />
+
+                {showLoginPassword && (
+                  <path
+                    d="M4 4L20 20"
+                    fill="none"
+                  />
+                )}
+              </svg>
+              </button>
+            </div>
             </div>
 
             <button type="submit">
