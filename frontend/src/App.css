@@ -1090,6 +1090,11 @@ button:disabled {
     margin: 0;
   }
 
+  .admin-dashboard .participant-form .password-input-wrapper {
+    width: 100%;
+    flex: none;
+  }
+
   /* Report Filter */
 
   .admin-dashboard .report-filter {
